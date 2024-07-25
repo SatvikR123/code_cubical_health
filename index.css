@@ -18,26 +18,35 @@ body {
 
 .header {
     display: flex;
-    justify-content: center; /* Center the navigation bar */
     align-items: center;
     background-color: #fdfdfd;
     box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
-    border-radius: 5px;
-    padding: 1.5em;
-    margin: 20px auto;
+    border-radius: 50px;
+    padding: 10px 10px;
+    justify-content: center;
+    margin: 0 auto;
     width: 80%;
-    z-index: 1;
+    z-index: 2;
+    top: 0;
+
+    right: 0;
+    left: 0;
+    position: fixed;
 }
 
 .logo {
     margin: 0;
-    font-size: 1.45em;
+    font-size: 1.1em;
 }
 
 nav {
     display: flex;
     align-items: center;
     width: 100%;
+}
+
+.header .main-nav {
+    justify-content: flex-end;
 }
 
 .main-nav {
@@ -49,11 +58,11 @@ nav {
 
 .logo a,
 .main-nav a {
-    padding: 10px 15px;
+    padding: 0 15px;
     text-transform: uppercase;
     text-align: center;
     color: #34495e;
-    font-size: .99em;
+    font-size: 1.1em;
     text-decoration: none; /* Remove underline */
 }
 
@@ -61,26 +70,12 @@ nav {
     color: #718daa;
 }
 
-.hamburger {
-    display: none;
-    flex-direction: column;
-    cursor: pointer;
-    margin-left: auto;
-}
-
-.hamburger span {
-    height: 3px;
-    width: 25px;
-    background: #34495e;
-    margin: 4px;
-    border-radius: 5px;
-}
-
 #content {
     display: flex;
     justify-content: space-around; /* Adjust for better spacing */
     flex-wrap: wrap; /* Allow wrapping on smaller screens */
     padding: 20px;
+    margin-top: 80px; /* Adjusted for fixed header */
 }
 
 #leftdiv {
@@ -88,7 +83,7 @@ nav {
     border-radius: 5px;
     margin: 20px;
     max-width: 45%; /* Adjust max width */
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     padding: 20px;
     flex: 1;
 }
@@ -98,40 +93,98 @@ nav {
     max-width: 100%;
 }
 
-@media (max-width: 950px) {
+#sidebar-active {
+    display: none;  
+}
+
+.open-sidebar-button, .close-sidebar-button {
+    padding: 0 20px;    
+    cursor: pointer;
+}
+
+.open-sidebar-button {
+    display: none;
+}
+
+.close-sidebar-button {
+    display: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Dark background */
+    backdrop-filter: blur(5px); /* Blur effect */
+    display: none;
+    z-index: 1;
+}
+
+@media (max-width: 900px) {
     .main-nav {
+        position: fixed;
+        top: 0;
+        right: -250px;
+        background-color: #fdfdfd;
+        box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
+        border-radius: 0 5px 5px 0;
+        width: 250px;
+        height: 100%;
+        flex-direction: column;
+        z-index: 2;
+        transition: right 0.3s ease-in-out;
+        padding-top: 60px;
+        padding-right: 10px;
+    }
+    
+    .main-nav li {
+        padding: 10px 0;
+        text-align: center;
+    }
+
+    .open-sidebar-button {
+        display: block;
+        margin-left: auto;
+    }
+    
+    #sidebar-active:checked ~ .main-nav {
+        right: 0;
+    }
+
+    #sidebar-active:checked ~ .overlay {
+        display: block;
+    }
+    
+    #sidebar-active:checked ~ .close-sidebar-button {
+        display: block;
+    }
+
+    #sidebar-active:not(:checked) ~ .close-sidebar-button {
         display: none;
-        width: 100%;
     }
-
-    .main-nav.active {
-        display: flex;
+    
+    #sidebar-active:checked ~ .open-sidebar-button {
+        display: none;
     }
+}
 
-    .hamburger {
-        display: flex;
+@media (max-width: 970px) {
+    #leftdiv {
+        min-width: 90%;
+    }
+    
+    #rightdiv img {
+        display: none;
     }
 }
 
 @media (max-width: 768px) {
-    .header {
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-    }
-
-    .main-nav {
-        flex-direction: column;
-        align-items: center;
-        width: 100%;
-    }
-
-    .main-nav li {
-        width: 100%;
-        text-align: center;
-        padding: 10px 0;
-    }
-
     #content {
         flex-direction: column;
     }
@@ -142,7 +195,7 @@ nav {
     }
 
     #rightdiv {
-        text-align: center;
+        display: none;
     }
 
     #rightdiv img {
