@@ -45,9 +45,14 @@ body {
 
 .logo {
   margin: 0;
+  font-weight: bold;
   font-size: 1.1em;
 }
-
+.logo a{
+  text-decoration: none;
+  font-size: 2rem;
+  color: purple;
+}
 nav {
   display: flex;
   align-items: center;
@@ -65,13 +70,12 @@ nav {
   list-style: none;
 }
 
-.logo a,
 .main-nav a {
   padding: 0 15px;
   text-transform: uppercase;
   text-align: center;
   color: #34495e;
-  font-size: 1.1em;
+  font-size: 0.9em;
   text-decoration: none;
 }
 
@@ -166,4 +170,3 @@ nav {
       display: none;  
   }
 }
-
