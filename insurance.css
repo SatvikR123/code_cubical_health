@@ -15,6 +15,124 @@ body {
     position: relative;
     padding-top: 20px;
 }
+.header {
+    display: flex;
+    align-items: center;
+    background-color: #fdfdfd;
+    box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
+    border-radius: 50px;
+    padding: 10px 10px;
+    width: 80%;
+    justify-content: center;
+    z-index: 2;
+    margin: 20px auto;
+  }
+
+  .logo {
+    margin: 0;
+    font-size: 1.1em;
+  }
+  
+  nav {
+    display: flex;
+    align-items: center;
+    width: 100%;
+  }
+  
+  .header .main-nav {
+    justify-content: flex-end;
+  }
+  
+  .main-nav {
+    margin-top: 5px;
+    margin-left: auto;
+    display: flex;
+    list-style: none;
+  }
+  
+  #sidebar-active {
+    display: none;  
+  }
+  
+  .open-sidebar-button, .close-sidebar-button {
+    padding: 0 20px;    
+    cursor: pointer;
+  }
+  
+  .open-sidebar-button {
+    display: none;
+  }
+  
+  .close-sidebar-button {
+    display: none;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+  }
+  
+  
+  .logo a,
+  .main-nav a {
+    padding: 0 15px;
+    text-transform: uppercase;
+    text-align: center;
+    color: #34495e;
+    font-size: 1.1em;
+    text-decoration: none; /* Remove underline */
+  }
+  
+  .main-nav a:hover {
+    color: #718daa;
+  }
+  @media (max-width: 900px) {
+    .main-nav {
+        position: fixed;
+        top: 0;
+        right: -250px;
+        background-color: #fdfdfd;
+        box-shadow: 0px 0px 14px 0px rgba(0,0,0,0.75);
+        border-radius: 0 5px 5px 0;
+        width: 250px;
+        height: 100%;
+        flex-direction: column;
+        z-index: 2;
+        transition: right 0.3s ease-in-out;
+        padding-top: 60px;
+        padding-right: 10px;
+    }
+    
+    .main-nav li {
+        padding: 10px 0;
+        text-align: center;
+    }
+  
+    .open-sidebar-button {
+        display: block;
+        margin-left: auto;
+    }
+    
+    #sidebar-active:checked ~ .main-nav {
+        right: 0;
+    }
+  
+    #sidebar-active:checked ~ .overlay {
+        display: block;
+    }
+    
+    #sidebar-active:checked ~ .close-sidebar-button {
+        display: block;
+    }
+  
+    #sidebar-active:not(:checked) ~ .close-sidebar-button {
+        display: none;
+    }
+    
+    #sidebar-active:checked ~ .open-sidebar-button {
+        display: none;
+    }
+  }
+  
 
 .head {
     display: flex;
