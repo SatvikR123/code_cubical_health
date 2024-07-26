@@ -153,120 +153,96 @@ nav {
     }
 }
 
-
-.head {
-    display: flex;
-    justify-content: center;
-    margin-bottom: 20px;
-}
-
-.first-content {
-    width: 100%;
-    transition: all 0.4s ease;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    padding: 10px; /* Add padding */
-    opacity: 1;
-    border-radius: 10px 10px 0 0; /* Rounded corners for top */
-}
-
-.first-content img {
-    width: 80%; /* Image takes 80% of the width with margins */
-    height: 50%;
-    object-fit: contain; /* Ensure the image covers the area */
-    margin-bottom: 10px;
-}
-
-.first-content p {
-    font-size: 0.9rem;
-    margin: 0;
-    text-align: center;
-    font-weight: normal;
-}
-
-.above-card-container, .below-card-container {
-    display: flex;
-    padding: 30px;
-    flex-wrap: wrap;
-    justify-content: space-evenly;
-    margin: 30px;
-}
-
-.card {
-    width: 190px;
-    height: 254px;
-    background: rgb(103, 225, 255);
-    transition: all 0.4s ease;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.705);
-    overflow: hidden;
-    position: relative;
-}
-
-.card:hover {
-    border-radius: 15px;
-    cursor: pointer;
-    transform: scale(1.2);
-    z-index: 10;
-    box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.705);
-    background: rgb(103, 151, 255);
-}
-
-.card:hover .first-content {
-    height: 0;
-    opacity: 0;
-}
-
-.second-content {
-    position: absolute;
-    top: 0;
-    height: 100%; /* Cover entire height of the card */
-    width: 100%;
-    opacity: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 10px; /* Add padding */
-    border-radius: 0 0 10px 10px; /* Rounded corners for bottom */
-    transition: all 0.4s ease;
-    font-size: 0.9rem;
-    text-align: center;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-
-.card:hover .second-content {
-    opacity: 1;
-    font-size: 1rem;
-    transform: rotate(0deg);
-}
-
-@media (max-width: 750px) {
-    .above-card-container, .below-card-container {
-        flex-direction: column;
-        align-items: center;
+    .cards {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     .card {
-        margin-bottom: 20px; /* Add spacing between cards */
-        width: 290px;
-        height: 354px;
-        transform: scale(1); /* Remove scale effect */
+        width: 25em;
+        height: 30em;
+        margin: 1em;
+        perspective: 1000px;
     }
 
-    .card:hover {
-        transform: scale(1.05); /* Reduce scale effect to prevent intersection */
-        box-shadow: 0px 0px 10px 5px rgba(0, 0, 0, 0.705);
+    .card-inner {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.6s;
+        transform-style: preserve-3d;
+        cursor: pointer;
     }
 
-    .first-content img {
-        width: 70%; /* Adjust image size for smaller screens */
-        height: auto;
+    .card.flipped .card-inner {
+        transform: rotateY(180deg);
     }
 
-    .first-content p, .second-content {
-        font-size: 1rem; /* Increase text size for readability */
+    .card-front, .card-back {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        border-radius: 1rem;
+        overflow: hidden;
+        box-shadow: 0px 0px 14px 0px rgba(0, 0, 0, 0.75);
     }
+
+    .card-front {
+        background: #f7ba2b;
+    }
+
+    .card-back {
+        background: #fff;
+        color: black;
+        transform: rotateY(180deg);
+
+        padding: 10px;
+        box-sizing: border-box;
+        text-align: left;
+
+    }
+#eyes{
+    margin-top: 8em;
 }
+#stomach{
+    margin-top: 4em;
+}
+#feet{
+    margin-top: 3em;
+}
+    .card img {
+        width: 100%;
+        height: 50%;
+        object-fit: cover;
+        border-top-left-radius: 1rem;
+        border-top-right-radius: 1rem;
+    }
+
+    .hover-text {
+        position: absolute;
+        bottom: 0;
+        width: 100%;
+        text-align: center;
+        font-weight: bold;
+        letter-spacing: .1em;
+        background-color: rgba(0, 0, 0, 0.7);
+        color: #fff;
+        padding: 10px;
+        border-bottom-left-radius: 1rem;
+        border-bottom-right-radius: 1rem;
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+
+    .card:hover .hover-text {
+        opacity: 1;
+    }
+
+    .card .title {
+        display: none; /* Hide the title */
+    }
+
+

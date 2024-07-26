@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Personalised Test</title>
+    <link rel="stylesheet" href="personalisedTest.css">
+</head>
+<body>
+    <!--NavBar-->
+    
+    <header class="header">
+        <nav>
+            <h1 class="logo"><a href="#">Healthcare Website</a></h1>
+            <input type="checkbox" id="sidebar-active">
+            <label for="sidebar-active" class="open-sidebar-button">
+                <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="#5f6368">
+                    <path d="M120-240v-80h720v80H120Zm0-200v-80h720v80H120Zm0-200v-80h720v80H120Z"/>
+                </svg>
+            </label>
+            <ul id="def-nav" class="main-nav">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="hosipitaLocator.html">Hospital Locator</a></li>
+                <li><a href="insurance.html">Insurance</a></li>
+                <li><a href="personalisedTest.html">Personalised Test</a></li>
+            </ul>
+            <div class="sidebar">
+                <label for="sidebar-active" class="close-sidebar-button">
+                    <svg xmlns="http://www.w3.org/2000/svg" height="32px" viewBox="0 -960 960 960" width="32px" fill="#5f6368">
+                        <path d="m256-200-56-56 224-224-224-224 56-56 224 224 224-224 56 56-224 224 224 224-56 56-224-224-224 224Z"/>
+                    </svg>
+                </label>
+                <ul class="main-nav">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="hosipitaLocator.html">Hospital Locator</a></li>
+                    <li><a href="insurance.html">Insurance</a></li>
+                    <li><a href="personalisedTest.html">Personalised Test</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <!--CARDS-->
+    <div class="cards">
+        <div class="card" onclick="flipCard(this)">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="card-info">
+                        <img id ="eyes" src="eyes.png" alt="Eyes">
+                        <div class="hover-text">Eye Problems</div>
+                    </div>
+                </div>
+                <div class="card-back">
+                    <p><strong>Dry Eye Syndrome:</strong> A condition where the eyes do not produce enough tears or the tears evaporate too quickly, leading to dryness, irritation, and discomfort.</p>
+                    <p><strong>Conjunctivitis:</strong> Also known as pink eye, it involves inflammation of the conjunctiva, often caused by infections (bacterial or viral), allergies, or irritants.</p>
+                    <p><strong>Cataracts:</strong> Clouding of the eye's lens, which can lead to blurred vision and is often age-related.</p>
+                    <p><strong>Floaters and Flashers:</strong> Floaters are small spots or thread-like strands that drift through your field of vision, while flashers are brief bursts of light.</p>
+                </div>
+            </div>
+        </div>   
+        <div class="card" onclick="flipCard(this)">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="card-info">
+                        <img id = "stomach" src="stomach.png" alt="Stomach">
+                        <div class="hover-text">Stomach Problems</div>
+                    </div>
+                </div>
+                <div class="card-back">
+                    <div class="card-content">
+                        <p><strong>Acid Reflux:</strong> A burning sensation in the chest or throat caused by stomach acid rising into the esophagus. It often occurs after eating or lying down.</p>
+                        <p><strong>Nausea:</strong> An uneasy or queasy feeling in the stomach that often precedes vomiting. It can be caused by motion sickness, food poisoning, or digestive disturbances.</p>
+                        <p><strong>Gas and Bloating:</strong> The accumulation of gas in the stomach or intestines leading to a feeling of fullness, pressure, or swelling in the abdomen.</p>
+                        <p><strong>Constipation:</strong> Difficulty passing stools or infrequent bowel movements, often accompanied by hard, dry stools and straining during bowel movements.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+            
+        <div class="card" onclick="flipCard(this)">
+            <div class="card-inner">
+                <div class="card-front">
+                    <div class="card-info">
+                        <img id="feet" src="feet2.png" alt="Foot">
+                        <div class="hover-text">Foot Symptoms and Diseases</div>
+                    </div>
+                </div>
+                <div class="card-back">
+                    <div class="card-content">
+                        <p><strong>Blisters:</strong> Fluid-filled sacs that form on the skin due to friction or pressure.</p>
+                        <p><strong>Calluses:</strong> Thickened skin areas that develop due to repeated friction or pressure, often on the soles or heels.</p>
+                        <p><strong>Corn:</strong> Small, thickened areas of skin, usually on the toes, caused by friction from poorly fitting shoes.</p>
+                        <p><strong>Athlete's Foot:</strong> A fungal infection that causes itching, redness, and peeling, typically between the toes.</p>
+                        <p><strong>Foot Odor:</strong> Unpleasant smell due to bacteria and fungi thriving in moist environments.</p>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    
+    <script>
+        function flipCard(card) {
+            card.classList.toggle('flipped');
+        }
+    </script>
+</body>
+</html>
